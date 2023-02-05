@@ -15,7 +15,7 @@ import utils.BaseClass;
  */
 public class _02_LogoTest_Task extends BaseClass {
     public static void main(String[] args) {
-        setUp("https://exelentersdet.com/");
+        setUp();
 
         // without page factory
 //        var loginPage = new _01_LoginPageWithoutPageFactory();
