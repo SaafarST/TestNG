@@ -1,8 +1,6 @@
 package com.Exelenter.class01;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class _01_TestNGDemo {
 
@@ -12,20 +10,28 @@ public class _01_TestNGDemo {
      *  sayB  <=== this runs first
      */
     @Test(priority = 1)
-    public void sayHello(){
+    public void test1(){
         System.out.println("Hello!");
     }
     @Test(priority = 2)
-    void sayBye(){
+    void test2(){
         System.out.println("Bye!");
     }
 
     @BeforeMethod
     void beforeMethod(){
-        System.out.println("This will run BEFORE method which has @Test annotation.");
+        System.out.println("BEFORE method");
     }
     @AfterMethod
     void afterMethod(){
-        System.out.println("This will run AFTER method which has @Test annotation.");
+        System.out.println("AFTER method");
+    }
+    @BeforeTest
+    void beforeTest(){
+        System.out.println("BEFORE test");
+    }
+    @AfterTest
+    void afterTest(){
+        System.out.println("AFTER test");
     }
 }
