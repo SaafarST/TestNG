@@ -2,11 +2,12 @@ package com.Exelenter.class02;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import pages._02_LoginPage;
+
 import static utils.BaseClass.*;
 
-public class _01_LoginValidationTest {
+public class _01_LoginValidation {
     /**
      * Todo: We will copy from Selenium Project following folders & packages:
      *    1. utils package ok
@@ -40,10 +41,19 @@ public class _01_LoginValidationTest {
     @Test
     void logoValidation(){
 
+        _02_LoginPage loginPage = new _02_LoginPage();
+
+        if (loginPage.homepageLogo.isDisplayed()) {
+            System.out.println("Logo is displayed, Test passed.");
+        }else {
+            System.out.println("Logo is not displayed, Test failed.");
+        }
     }
 
     @Test
     void validLoginTest(){
+
+
 
     }
 }
