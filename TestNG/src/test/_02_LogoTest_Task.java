@@ -1,6 +1,7 @@
 package test;
 
-import Class20_POM.pages._02_LoginPageWithPageFactory;
+
+import pages._02_LoginPageWithPageFactory;
 import utils.BaseClass;
 
 /**
