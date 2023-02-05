@@ -8,7 +8,7 @@ public class _01_LoginValidationTest {
      *    3. test package ok
      *    4. Selenium JARs.
      *    5. Drivers folder ok
-     *    6. configs folder
+     *    6. configs folder ok
      */
 
 }
