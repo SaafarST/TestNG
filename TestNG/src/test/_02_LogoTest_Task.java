@@ -1,7 +1,7 @@
 package test;
 
 
-import pages._02_LoginPage;
+import pages.LoginPage;
 import utils.BaseClass;
 
 /**
@@ -26,7 +26,7 @@ public class _02_LogoTest_Task extends BaseClass {
 //            System.out.println("Logo is not displayed");
 
         // with PageFactory
-        var loginWithPF = new _02_LoginPage();
+        var loginWithPF = new LoginPage();
         boolean logoDisplayed = loginWithPF.homepageLogo.isDisplayed();
         if (logoDisplayed)
             System.out.println("Logo is displayed");

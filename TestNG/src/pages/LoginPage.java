@@ -8,7 +8,7 @@ import static utils.BaseClass.driver;
 
 // Note: This is just a template for LoginPage where we store everything related to Login page here, in this class.
 //  In Page Object Model (Design Pattern), we organize our code by pages. Each web page will have their own class.
-public class _02_LoginPage {
+public class LoginPage {
 
     @FindBy(id = "txtUsername")
     public WebElement username;
@@ -22,7 +22,7 @@ public class _02_LoginPage {
     @FindBy(css = "#divLogo img")
     public WebElement homepageLogo;
 
-    public _02_LoginPage() {
+    public LoginPage() {
         PageFactory.initElements(driver,this);
     }
 }

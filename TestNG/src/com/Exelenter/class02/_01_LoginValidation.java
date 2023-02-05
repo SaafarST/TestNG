@@ -3,7 +3,9 @@ package com.Exelenter.class02;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages._02_LoginPage;
+import pages.DashboardPage;
+import pages.LoginPage;
+import utils.ConfigsReader;
 
 import static utils.BaseClass.*;
 
@@ -41,7 +43,7 @@ public class _01_LoginValidation {
     @Test
     void logoValidation(){
 
-        _02_LoginPage loginPage = new _02_LoginPage();
+        LoginPage loginPage = new LoginPage();
 
         if (loginPage.homepageLogo.isDisplayed()) {
             System.out.println("Logo is displayed, Test passed.");
@@ -53,7 +55,26 @@ public class _01_LoginValidation {
     @Test
     void validLoginTest(){
 
+        LoginPage loginPage = new LoginPage();
+        sendText(loginPage.username, ConfigsReader.getProperties("username"));
+        sendText(loginPage.password, ConfigsReader.getProperties("password"));
+        click(loginPage.loginBtn);
 
+        DashboardPage dashboardPage = new DashboardPage();
+        String expectedValue = "Welcome Admin";
+        String actualValue = dashboardPage.welcome.getText();
+
+        if (expectedValue.equals(actualValue))
+            System.out.println("Login successful.");
+        else
+            System.out.println("Login failed.");
+
+
+        if (dashboardPage.welcome.isDisplayed()) {
+            System.out.println("Login successful. Test is passed.");
+        }else {
+            System.out.println("Login failed. Test failed.");
+        }
 
     }
 }
