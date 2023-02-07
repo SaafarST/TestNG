@@ -10,7 +10,7 @@ import utils.ConfigsReader;
 
 import static utils.BaseClass.*;
 
-public class _02_TitleAndLogoValidation {
+public class _03_TitleAndLogoValidation {
     /**
      * Todo: We will copy from Selenium Project following folders & packages:
      *    1. utils package ok
