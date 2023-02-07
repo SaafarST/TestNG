@@ -36,7 +36,7 @@ public class _03_TitleAndLogoValidation {
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle,expectedTitle,"Exelenter Project is wrong.");
     }
-    @Test
+    @Test(dependsOnMethods = "titleValidation")
     void logoValidation(){
 
         LoginPage loginPage = new LoginPage();
@@ -45,7 +45,7 @@ public class _03_TitleAndLogoValidation {
 
     }
 
-    @Test
+    @Test(enabled = false)
     void validLoginTest(){
 
         LoginPage loginPage = new LoginPage();
