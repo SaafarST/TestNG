@@ -9,6 +9,8 @@ import static utils.BaseClass.driver;
 public class DashboardPage {
     @FindBy(id = "welcome")
     public WebElement welcome;
+    @FindBy(xpath = "(//div[@id='branding']/a)[1]")
+    public WebElement dashboardLogo;
 
     public DashboardPage(){
         PageFactory.initElements(driver,this);
