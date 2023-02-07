@@ -70,4 +70,5 @@ public class _03_TitleAndLogoValidation {
         }
 
     }
+    // Note: If a test assertion fails, test will continue and quit the browser, because Assert has a built-in Try-Catch.
 }
