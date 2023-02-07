@@ -21,7 +21,8 @@ public class LoginPage {
 
     @FindBy(css = "#divLogo img")
     public WebElement homepageLogo;
-
+    @FindBy(id = "spanMessage")
+    public WebElement loginErrorMessage;
     public LoginPage() {
         PageFactory.initElements(driver,this);
     }
