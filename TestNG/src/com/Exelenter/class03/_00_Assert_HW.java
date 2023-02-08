@@ -1,9 +1,7 @@
 package com.Exelenter.class03;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pages.LoginPage;
 import utils.BaseClass;
 
@@ -18,14 +16,20 @@ import utils.BaseClass;
  *    You should be able to login, even if the title verification (previous step) fails.
  */
 public class _00_Assert_HW extends BaseClass {
-
+    @BeforeMethod
+    void startBrowser() {
+        setUp();
+    }
+    @AfterMethod
+    void quitBrowser() {
+        tearDown();
+    }
     @Test
     void hardAssert(){
         LoginPage loginPage = new LoginPage();
         String expectedTitle = "Exelenter Project";
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle,expectedTitle,"Exelenter Project is wrong.");
-
     }
 
 
