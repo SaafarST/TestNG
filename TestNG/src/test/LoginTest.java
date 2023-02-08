@@ -30,6 +30,5 @@ public class LoginTest {
        sendText(loginPage.password, invalidPassword);
        click(loginPage.loginBtn);
        Assert.assertEquals(loginPage.loginErrorMessage,expectedErrorMessage,"Error message is incorrect.");
-
    }
 }
