@@ -20,7 +20,7 @@ public class addEmployeeTest extends BaseClass {
 
 
     @Test
-    public void addEnployeeTest(){
+    public void addEmployeeTest(){
         var loginPage = new LoginPage();// Happy Path Testing
         loginPage.loginToWebsite(ConfigsReader.getProperties("username"),ConfigsReader.getProperties("password"));
     }
