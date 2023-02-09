@@ -26,12 +26,8 @@ public class addEmployeeTest extends BaseClass {
         PIMPage pimPage = new PIMPage();
         pimPage.navigateToAddEmployee();
 
-        AddEmployeePage addEmployee = new AddEmployeePage();
-        String name = "Eva";
-        String surname = "Brown";
-        sendText(addEmployee.firstName,name);
-        sendText(addEmployee.lastName,surname);
-        sendText(addEmployee.uploadPhoto, ConfigsReader.getProperties("filePath"));
-        click(addEmployee.saveButton);
+        AddEmployeePage addEmployeePage = new AddEmployeePage();
+        System.out.println("New Employee ID: " + addEmployeePage.employeeId.getAttribute("value"));
+        addEmployeePage.addEmployee("EXname","EXsurname","ExFilePath");
     }
 }

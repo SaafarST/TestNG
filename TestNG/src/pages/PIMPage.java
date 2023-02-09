@@ -18,6 +18,6 @@ public class PIMPage extends BaseClass {
     }
     public void navigateToAddEmployee(){
         click(PIM);
-        click(employeeList);
+        click(addEmployee);
     }
 }

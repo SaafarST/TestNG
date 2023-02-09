@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.BaseClass;
+import utils.ConfigsReader;
 
 public class AddEmployeePage extends BaseClass {
     @FindBy(id = "firstName")
@@ -21,5 +22,21 @@ public class AddEmployeePage extends BaseClass {
         PageFactory.initElements(driver, this);
     }
 
-
+    public void addEmployee(String name,String surname, String filePath){
+//        var loginPage = new LoginPage();// Happy Path Testing
+//        loginPage.loginToWebsite(ConfigsReader.getProperties("username"),ConfigsReader.getProperties("password"));
+//
+//        PIMPage pimPage = new PIMPage();
+//        pimPage.navigateToAddEmployee();
+//
+//        AddEmployeePage addEmployee = new AddEmployeePage();
+//        sendText(addEmployee.firstName,ConfigsReader.getProperties("name"));
+//        sendText(addEmployee.lastName,ConfigsReader.getProperties("surname"));
+//        sendText(addEmployee.uploadPhoto, ConfigsReader.getProperties("filePath"));
+//        click(addEmployee.saveButton);
+        sendText(firstName, ConfigsReader.getProperties(name));
+        sendText(lastName, ConfigsReader.getProperties(surname));
+        sendText(uploadPhoto, ConfigsReader.getProperties(filePath));
+        click(saveButton);
+    }
 }
