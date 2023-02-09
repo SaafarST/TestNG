@@ -13,6 +13,7 @@ public class addEmployeeTest extends BaseClass {
     @BeforeMethod
     void startBrowser() {
         setUp();
+        initialize();
     }
     @AfterMethod
     void quitBrowser() {
@@ -20,13 +21,9 @@ public class addEmployeeTest extends BaseClass {
     }
     @Test
     public void addEmployeeTest(){
-        var loginPage = new LoginPage();// Happy Path Testing
+
         loginPage.loginToWebsite(ConfigsReader.getProperties("username"),ConfigsReader.getProperties("password"));
-
-        PIMPage pimPage = new PIMPage();
         pimPage.navigateToAddEmployee();
-
-        AddEmployeePage addEmployeePage = new AddEmployeePage();
         System.out.println("New Employee ID: " + addEmployeePage.employeeId.getAttribute("value"));
         addEmployeePage.addEmployee("EXname","EXsurname","ExFilePath");
     }

@@ -24,12 +24,11 @@ public class LoginTest {
     }
    @Test
     public void validAdminLogin(){
-       var loginPage = new LoginPage();// Happy Path Testing
+
        sendText(loginPage.username, ConfigsReader.getProperties("username"));
        sendText(loginPage.password, ConfigsReader.getProperties("password"));
        click(loginPage.loginBtn);
 
-       var dashboardPage = new DashboardPage();
        String expectedValue = "Welcome Admin";
        String actualValue = dashboardPage.welcome.getText();
        Assert.assertEquals(actualValue,expectedValue,"'Welcome Admin' text is incorrect");
@@ -38,7 +37,7 @@ public class LoginTest {
     public void validUserInvalidPassword(){
        String invalidPassword = "MineLibe";
        String expectedErrorMessage = "Invalid credentials";
-       var loginPage = new LoginPage();// Negative Testing
+
        sendText(loginPage.username, ConfigsReader.getProperties("username"));
        sendText(loginPage.password, invalidPassword);
        click(loginPage.loginBtn);
@@ -47,7 +46,7 @@ public class LoginTest {
     @Test
     public void validUserEmptyPassword() {
         String expectedErrorMessage = "Password cannot be empty";
-        LoginPage loginPage = new LoginPage();                                                    // Negative Testing
+
         sendText(loginPage.username, ConfigsReader.getProperties("username"));   // Valid Username, Password empty (skipped).
         click(loginPage.loginBtn);
         Assert.assertEquals(loginPage.loginErrorMessage.getText(),expectedErrorMessage, "Error message is incorrect");
