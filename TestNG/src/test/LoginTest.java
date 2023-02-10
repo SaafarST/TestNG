@@ -12,21 +12,10 @@ public class LoginTest {
     /**
      *  US 16457: As an Admin User, I should not be able to login to the application using invalid credentials.    <== High Level explanation of the feature.
      */
-    @BeforeMethod
-    void startBrowser() {
-        setUp();
-    }
-    @AfterMethod
-    void quitBrowser() {
-        tearDown();
-    }
    @Test
     public void validAdminLogin(){
 
-       sendText(loginPage.username, ConfigsReader.getProperties("username"));
-       sendText(loginPage.password, ConfigsReader.getProperties("password"));
-       click(loginPage.loginBtn);
-
+       loginPage.loginToWebsite(ConfigsReader.getProperties("username"),ConfigsReader.getProperties("password"));
        String expectedValue = "Welcome Admin";
        String actualValue = dashboardPage.welcome.getText();
        Assert.assertEquals(actualValue,expectedValue,"'Welcome Admin' text is incorrect");
