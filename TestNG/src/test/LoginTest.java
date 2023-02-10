@@ -5,8 +5,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.DashboardPage;
-import pages.LoginPage;
 import utils.ConfigsReader;
 
 import static utils.BaseClass.*;
@@ -37,7 +35,6 @@ public class LoginTest {
     public void validUserInvalidPassword(){
        String invalidPassword = "MineLibe";
        String expectedErrorMessage = "Invalid credentials";
-
        sendText(loginPage.username, ConfigsReader.getProperties("username"));
        sendText(loginPage.password, invalidPassword);
        click(loginPage.loginBtn);
