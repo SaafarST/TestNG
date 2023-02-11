@@ -5,7 +5,7 @@
         <classes>
             <class name="test.LoginTest">
                 <methods>
-                    <exclude name="validAdminLogin"/>
+                    <include name="validAdminLogin"/>
                     <include name="validUserInvalidPassword"/>
                     <include name="validUserEmptyPassword"/>
                 </methods>
