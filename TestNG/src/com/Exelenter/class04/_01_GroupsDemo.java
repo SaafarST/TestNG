@@ -1,6 +1,5 @@
 package com.Exelenter.class04;
 import org.testng.annotations.Test;
-
 public class _01_GroupsDemo {
     @Test(dependsOnGroups = "smoke")
     void test1(){
