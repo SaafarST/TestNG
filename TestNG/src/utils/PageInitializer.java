@@ -11,10 +11,11 @@ public class PageInitializer {
     public static DashboardPage dashboardPage;
     public static AddEmployeePage addEmployeePage;
     public static PIMPage pimPage;
-    public static void initialize(){
-         loginPage = new LoginPage();
-         dashboardPage = new DashboardPage();
-         addEmployeePage = new AddEmployeePage();
-         pimPage = new PIMPage();
+
+    public static void initialize() {
+        loginPage = new LoginPage();
+        dashboardPage = new DashboardPage();
+        addEmployeePage = new AddEmployeePage();
+        pimPage = new PIMPage();
     }
 }

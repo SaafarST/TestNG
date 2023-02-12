@@ -2,20 +2,18 @@ package test;
 
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utils.BaseClass;
 import utils.ConfigsReader;
 
-import static utils.BaseClass.*;
-public class LoginTest {
+public class LoginTest extends BaseClass {
     /**
      *  US 16457: As an Admin User, I should not be able to login to the application using invalid credentials.    <== High Level explanation of the feature.
      */
    @Test
     public void validAdminLogin(){
 
-       loginPage.loginToWebsite(ConfigsReader.getProperties("username"),ConfigsReader.getProperties("password"));
+       loginPage.loginToWebsite("username","password");
        String expectedValue = "Welcome Admin";
        String actualValue = dashboardPage.welcome.getText();
        Assert.assertEquals(actualValue,expectedValue,"'Welcome Admin' text is incorrect");
