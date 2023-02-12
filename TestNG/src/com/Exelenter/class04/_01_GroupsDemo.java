@@ -3,7 +3,7 @@ package com.Exelenter.class04;
 import org.testng.annotations.Test;
 
 public class _01_GroupsDemo {
-    @Test
+    @Test(dependsOnGroups = "smoke")
     void test1(){
         System.out.println("Test 1");}
     @Test(groups = "smoke")
@@ -17,5 +17,13 @@ public class _01_GroupsDemo {
     @Test(groups = {"smoke","regression"})
     void test4(){
         System.out.println("Test 4");
+    }
+    @Test
+    void test5(){
+        System.out.println("Test 5");
+    }
+    @Test
+    void test6(){
+        System.out.println("Test 6");
     }
 }
