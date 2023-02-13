@@ -7,5 +7,4 @@ public class _02_DataProviderDemo {
     void printData(){
 
     }
-
 }
