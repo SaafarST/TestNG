@@ -2,8 +2,10 @@ package com.Exelenter.class03;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
+import org.testng.asserts.SoftAssert;
 import pages.LoginPage;
 import utils.BaseClass;
+import utils.ConfigsReader;
 
 /**
  *  Task: Hard Assert & Soft Assertion
@@ -16,21 +18,28 @@ import utils.BaseClass;
  *    You should be able to login, even if the title verification (previous step) fails.
  */
 public class _00_Assert_HW extends BaseClass {
-    @BeforeMethod
-    void startBrowser() {
-        setUp();
-    }
-    @AfterMethod
-    void quitBrowser() {
-        tearDown();
-    }
+
     @Test
     void hardAssert(){
-        LoginPage loginPage = new LoginPage();
-        String expectedTitle = "Exelenter Project";
+        String expectedTitle = "Exelenter Project!";
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle,expectedTitle,"Exelenter Project is wrong.");
-    }
 
+        loginPage.loginToWebsite("username","password");
+    }
+    @Test
+    void softAssert(){
+
+        SoftAssert softAssert = new SoftAssert();
+
+        String expectedTitle = "Exelenter Project!";
+        String actualTitle = driver.getTitle();
+
+        softAssert.assertEquals(actualTitle,expectedTitle,"Exelenter Project is wrong.");
+
+        loginPage.loginToWebsite("username","password");
+        softAssert.assertAll();
+
+    }
 
 }
