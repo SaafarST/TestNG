@@ -1,11 +1,8 @@
 package com.Exelenter.class03;
-
 import org.testng.Assert;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
-import pages.LoginPage;
 import utils.BaseClass;
-import utils.ConfigsReader;
 
 /**
  *  Task: Hard Assert & Soft Assertion
