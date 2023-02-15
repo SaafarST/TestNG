@@ -54,7 +54,7 @@ public class _06_Assignment extends BaseClass {
         click(addEmployeePage.saveButton);
         waitForVisibility(personalDetailsPage.personalDetailsHeader);
 
-        //takeScreenshot1 Method modified to for this assignment
+        //takeScreenshot1 Method modified to for this assignment, scroll down to the end to see the method
         takeScreenshot1(firstName,lastName);
 
         //Get header of the personalDetailsPage:
@@ -77,3 +77,16 @@ public class _06_Assignment extends BaseClass {
         return data;}
 
 }
+/* Method is taken from Common Methods:
+
+  public static void takeScreenshot1(String firstName, String lastName) {
+        WebElement fullPageScreenshot = driver.findElement(By.cssSelector("html>body"));
+        File sourceFullPage = fullPageScreenshot.getScreenshotAs(OutputType.FILE);
+        try {
+            FileHandler.copy(sourceFullPage, new File("screenshots/addEmployee"+firstName+lastName+".png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Screenshot is not taken");
+        }
+    }
+    */
