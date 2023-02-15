@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 import utils.BaseClass;
 import utils.ConfigsReader;
 
@@ -17,6 +18,16 @@ public class AddEmployeePage extends BaseClass {
     public WebElement uploadPhoto;
     @FindBy(id = "btnSave")
     public WebElement saveButton;
+    @FindBy(id = "chkLogin")
+    public WebElement checkLogin;
+    @FindBy(id = "user_name")
+    public WebElement userName;
+    @FindBy(id = "user_password")
+    public WebElement EmployeePassword;
+    @FindBy(id = "re_password")
+    public WebElement confirmEmployeePassword;
+    @FindBy(id = "status")
+    public Select status;
 
     public AddEmployeePage() {
         PageFactory.initElements(driver, this);
