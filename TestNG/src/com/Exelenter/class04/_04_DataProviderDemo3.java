@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import utils.BaseClass;
 
 public class _04_DataProviderDemo3 extends BaseClass {
-
     // Instead of repeating ourselves with many test methods (login1, login2, login3, etc.) instead we can use DataProvider
     @Test
     public void loginTest(String username, String password){
