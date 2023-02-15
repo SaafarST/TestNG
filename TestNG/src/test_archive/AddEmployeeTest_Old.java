@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.AddEmployeePage;
 import pages.LoginPage;
-import pages.PIMPage;
+import pages.pimPage;
 import utils.BaseClass;
 import utils.ConfigsReader;
 
@@ -28,7 +28,7 @@ public class AddEmployeeTest_Old extends BaseClass {
         sendText(loginPage.password, ConfigsReader.getProperties("password"));       // Valid Password
         click(loginPage.loginBtn);
 
-        PIMPage pimPage = new PIMPage();
+        pages.pimPage pimPage = new pimPage();
         pimPage.navigateToAddEmployee();
 
         AddEmployeePage addEmployeePage = new AddEmployeePage();

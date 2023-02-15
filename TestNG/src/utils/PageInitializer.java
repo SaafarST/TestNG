@@ -1,21 +1,19 @@
 package utils;
 
-import org.apache.commons.math3.analysis.function.Add;
-import pages.AddEmployeePage;
-import pages.DashboardPage;
-import pages.LoginPage;
-import pages.PIMPage;
+import pages.*;
 
 public class PageInitializer {
     public static LoginPage loginPage;
     public static DashboardPage dashboardPage;
     public static AddEmployeePage addEmployeePage;
-    public static PIMPage pimPage;
+    public static pages.pimPage pimPage;
+    public static PersonalDetailsPage personalDetailsPage;
 
     public static void initialize() {
         loginPage = new LoginPage();
         dashboardPage = new DashboardPage();
         addEmployeePage = new AddEmployeePage();
-        pimPage = new PIMPage();
+        pimPage = new pimPage();
+        personalDetailsPage = new PersonalDetailsPage();
     }
 }
