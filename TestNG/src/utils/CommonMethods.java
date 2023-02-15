@@ -2,9 +2,11 @@ package utils;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.io.File;
 import java.io.IOException;
@@ -287,6 +289,20 @@ public class CommonMethods extends PageInitializer{
         File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(sourceFile, new File("screenshots/" + fileName + ".png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Screenshot is not taken");
+        }
+    }
+
+    /**
+    new method added for homework assignment
+     */
+    public static void takeScreenshot1(String firstName, String lastName) {
+        WebElement fullPageScreenshot = driver.findElement(By.cssSelector("html>body"));
+        File sourceFullPage = fullPageScreenshot.getScreenshotAs(OutputType.FILE);
+        try {
+            FileHandler.copy(sourceFullPage, new File("screenshots/addEmployee"+firstName+lastName+".png"));
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Screenshot is not taken");

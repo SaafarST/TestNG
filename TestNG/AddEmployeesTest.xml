@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Add Employees Test">
+    <test verbose="2" preserve-order="true"
+          name="Add Employees Test">
+        <classes>
+            <class name="com.Exelenter.class04._06_Assignment">
+                <methods>
+                    <include name="loginTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
