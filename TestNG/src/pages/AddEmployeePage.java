@@ -39,4 +39,11 @@ public class AddEmployeePage extends BaseClass {
         sendText(uploadPhoto, ConfigsReader.getProperties(filePath));
         click(saveButton);
     }
+//    public void addEmployee(String firstName,String lastName, int age){
+//
+//        sendText(firstName, firstName);
+//        sendText(lastName, ConfigsReader.getProperties(surname));
+//        sendText(uploadPhoto, ConfigsReader.getProperties(filePath));
+//        click(saveButton);
+//    }
 }
