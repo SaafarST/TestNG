@@ -1,9 +1,17 @@
 package com.Exelenter.class04;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.io.FileHandler;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utils.BaseClass;
+
+import java.io.File;
+import java.io.IOException;
+import java.sql.Time;
 
 public class _06_Assignment extends BaseClass {
     /*
@@ -41,10 +49,19 @@ public class _06_Assignment extends BaseClass {
         sendText(addEmployeePage.confirmEmployeePassword, password);
         //Click save button
         click(addEmployeePage.saveButton);
-        waitForVisibility(dashboardPage.welcome);
-        boolean welcomeDisplayed = dashboardPage.welcome.isDisplayed();
-        wait(10000);
+        waitForVisibility(personalDetailsPage.personalDetailsHeader);
+
+        WebElement fullPageScreenshot = driver.findElement(By.cssSelector("html>body"));
+        File sourceFullPage = fullPageScreenshot.getScreenshotAs(OutputType.FILE);
+        try {
+            FileHandler.copy(sourceFullPage, new File("screenshots/addEmployee.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Screenshot is not taken");
+        }
+        boolean welcomeDisplayed = personalDetailsPage.personalDetailsHeader.isDisplayed();
         Assert.assertTrue(welcomeDisplayed, "Welcome message is not displayed.");
+
     }
 
     @DataProvider(name = "addEmployeeTest")
@@ -54,7 +71,7 @@ public class _06_Assignment extends BaseClass {
 //                {"Pep", "Guardiola", "Peppy","PepGuardiola2022"},
 //                {"Mikel", "Arteta", "Miko","MikelArteta2023"},
 //                {"Sir", "Fergie", "Referee","SirFergie2013"},
-               {"Bill", "Shankly", "Billo","BillShankly1973!"}
+               {"Bill", "Shankly", "Billosh14","BillShankly1973!"}
 
         };
         return data;}
