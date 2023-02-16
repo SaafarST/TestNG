@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.BaseClass;
 
-public class _01_ListenerDemo extends BaseClass {
+public class _01_ListenerDemo {
     @Test
     void test1(){
         System.out.println("Test1");

@@ -6,11 +6,11 @@ import org.testng.ITestResult;
 public class Listener implements ITestListener {
     @Override
     public void onTestSuccess(ITestResult result) {
-        System.out.println("Test passed.");
+        System.out.println("Test passed " + result.getTestName());
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        System.out.println("Test failed.");
+        System.out.println("Test failed " + result.getTestName());
     }
 }
