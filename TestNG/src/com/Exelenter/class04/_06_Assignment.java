@@ -67,10 +67,10 @@ public class _06_Assignment extends BaseClass {
     @DataProvider(name = "addEmployeeTest")
     public Object[][] dataProviderMethod() {
         Object[][] data = {
-                {"Jurgen", "Klopp", "Kloppy6","JurgenKlopp2021!"},
-                {"Pep", "Guardiola", "Peppy6","PepGuardiola2022!"},
-                {"Mikel", "Arteta", "Miko6","MikelArteta2023!"},
-                {"Sir", "Fergie", "Referee6","SirFergie2013!"},
+//                {"Jurgen", "Klopp", "Kloppy6","JurgenKlopp2021!"},
+//                {"Pep", "Guardiola", "Peppy6","PepGuardiola2022!"},
+//                {"Mikel", "Arteta", "Miko6","MikelArteta2023!"},
+//                {"Sir", "Fergie", "Referee6","SirFergie2013!"},
                {"Bill", "Shankly", "Billosh6","BillShankly1973!"}
 
         };

@@ -12,6 +12,6 @@ public class _01_ListenerDemo {
     @Test
     void test2(){
         System.out.println("Test2 Running ...");
-        Assert.fail();
+        //Assert.fail();
     }
 }

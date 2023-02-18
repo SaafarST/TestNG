@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 import static utils.BaseClass.driver;
@@ -299,8 +300,10 @@ public class CommonMethods extends PageInitializer{
     new method added for homework assignment
      */
     public static void takeScreenshot1(String firstName, String lastName) {
-        WebElement fullPageScreenshot = driver.findElement(By.cssSelector("html>body"));
-        File sourceFullPage = fullPageScreenshot.getScreenshotAs(OutputType.FILE);
+        //WebElement fullPageScreenshot = driver.findElement(By.cssSelector("html>body"));
+        //File sourceFullPage = fullPageScreenshot.getScreenshotAs(OutputType.FILE);
+        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+        File sourceFullPage = takesScreenshot.getScreenshotAs(OutputType.FILE);
         try {
             FileHandler.copy(sourceFullPage, new File("screenshots/addEmployee"+firstName+lastName+".png"));
         } catch (IOException e) {
@@ -308,6 +311,19 @@ public class CommonMethods extends PageInitializer{
             System.out.println("Screenshot is not taken");
         }
     }
-
+    public static String randomStrongPassWord(){
+        String passWord = "";
+        Random rnd = new Random();
+        String lowerLetter = "abcdefghijklmnoprstuwxyz";
+        String capitalLetters = "ABCDEFGHIJKLMNOPRSTUWXYZ";
+        String specialChar = "!#$%&()*+,-.:;<=>?@[]^_{|}~";
+        while (passWord.length() < 12){
+            passWord += lowerLetter.charAt(rnd.nextInt(lowerLetter.length()));
+            passWord += capitalLetters.charAt(rnd.nextInt(capitalLetters.length()));
+            passWord += specialChar.charAt(rnd.nextInt(specialChar.length()));
+            passWord += rnd.nextInt(10);
+        }
+        return passWord;
+    }
 
 }
