@@ -61,9 +61,9 @@ public class _06_Assignment extends BaseClass {
         takeScreenshot1(firstName,lastName);
 
         //Get header of the personalDetailsPage:
-        boolean personalDetailsHeader = personalDetailsPage.personalDetailsHeader.isDisplayed();
+        //boolean personalDetailsHeader = personalDetailsPage.personalDetailsHeader.isDisplayed();
         //Assert it is
-        Assert.assertTrue(personalDetailsHeader, "Personal Details Header is not displayed.");
+        //Assert.assertTrue(personalDetailsHeader, "Personal Details Header is not displayed.");
 
         try {
             boolean headerDisplayed = personalDetailsPage.personalDetailsHeader.isDisplayed();
@@ -87,10 +87,10 @@ public class _06_Assignment extends BaseClass {
     @DataProvider(name = "addEmployeeTest")
     public Object[][] dataProviderMethod() {
         Object[][] data = {
-//                {"Jurgen", "Klopp", "Kloppy8",randomStrongPassWord()},
-//                {"Pep", "Guardiola", "Peppy8",randomStrongPassWord()},
-//                {"Mikel", "Arteta", "Miko8",randomStrongPassWord()},
-//                {"Sir", "Fergie", "Referee8",randomStrongPassWord()},
+                {"Jurgen", "Klopp", "Kloppy8",randomStrongPassWord()},
+                {"Pep", "Guardiola", "Peppy8",randomStrongPassWord()},
+                {"Mikel", "Arteta", "Miko8",randomStrongPassWord()},
+                {"Sir", "Fergie", "Referee4",randomStrongPassWord()},
                {"Bill", "Shankly", "Billosh11",randomStrongPassWord()}
 
         };
