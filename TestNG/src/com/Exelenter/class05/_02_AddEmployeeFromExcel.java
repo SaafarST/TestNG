@@ -1,14 +1,13 @@
-package com.Exelenter.class04;
+package com.Exelenter.class05;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utils.BaseClass;
 import utils.ExcelUtility;
 
-
 import static org.testng.Assert.assertEquals;
 
-public class _06_Assignment extends BaseClass {
+public class _02_AddEmployeeFromExcel extends BaseClass {
     /*
       Task: HW: Add Employees using Data Provider Annotation
              1.  Open the Chrome browser
@@ -26,7 +25,7 @@ public class _06_Assignment extends BaseClass {
                   BONUS: Specify a group name for this test case, and execute from the
                   XML file.
      */
-    @Test(dataProvider = "addEmployeeTest")
+    @Test(dataProvider = "readFromExcel")
     public void loginTest(String firstName, String lastName, String username, String password) {
 
         //Login to website:
@@ -50,11 +49,6 @@ public class _06_Assignment extends BaseClass {
         //takeScreenshot1 Method modified to for this assignment, scroll down to the end to see the method
         takeScreenshot1(firstName,lastName);
 
-        //Get header of the personalDetailsPage:
-        //boolean personalDetailsHeader = personalDetailsPage.personalDetailsHeader.isDisplayed();
-        //Assert it is
-        //Assert.assertTrue(personalDetailsHeader, "Personal Details Header is not displayed.");
-
         try {
             boolean headerDisplayed = personalDetailsPage.personalDetailsHeader.isDisplayed();
             if (headerDisplayed) {
@@ -65,38 +59,18 @@ public class _06_Assignment extends BaseClass {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            // 1st way to fail your test
-//            System.out.println("Employee is not added. Username or ID already exits.");
-//            Assert.fail();
+
             // 2nd way to fail my test
             throw  new RuntimeException("Employee is not added. Username or ID already exits.");
         }
 
     }
 
-    @DataProvider(name = "addEmployeeTest")
-    public Object[][] dataProviderMethod() {
-        Object[][] data = {
-                {"Jurgen", "Klopp", "Kloppy8",randomStrongPassWord()},
-                {"Pep", "Guardiola", "Peppy8",randomStrongPassWord()},
-                {"Mikel", "Arteta", "Miko8",randomStrongPassWord()},
-                {"Sir", "Fergie", "Referee4",randomStrongPassWord()},
-               {"Bill", "Shankly", "Billosh11",randomStrongPassWord()}
-
-        };
-        return data;}
+    @DataProvider(name = "readFromExcel")
+    public Object[][] getDataFromExcel(){
+        String absolutePath = ExcelUtility.projectPath + "/testData/ExelenterEmployeesList.xlsx";  //Don't forget slash in front of testData
+        return ExcelUtility.readFromExcel(absolutePath, "Employee");
+    }
 
 }
-/* Method is taken from Common Methods:
 
-  public static void takeScreenshot1(String firstName, String lastName) {
-        WebElement fullPageScreenshot = driver.findElement(By.cssSelector("html>body"));
-        File sourceFullPage = fullPageScreenshot.getScreenshotAs(OutputType.FILE);
-        try {
-            FileHandler.copy(sourceFullPage, new File("screenshots/addEmployee"+firstName+lastName+".png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Screenshot is not taken");
-        }
-    }
-    */
