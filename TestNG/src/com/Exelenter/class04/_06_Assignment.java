@@ -14,6 +14,8 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Time;
 
+import static org.testng.Assert.assertEquals;
+
 public class _06_Assignment extends BaseClass {
 
 
@@ -44,6 +46,7 @@ public class _06_Assignment extends BaseClass {
         //Add name and surname:
         sendText(addEmployeePage.firstName, firstName);
         sendText(addEmployeePage.lastName, lastName);
+        String expectedEmployeeId = addEmployeePage.employeeId.getAttribute("value");
         //click to Create login details
         click(addEmployeePage.checkLogin);
         //Add Username and password, reaffirm password
@@ -62,16 +65,33 @@ public class _06_Assignment extends BaseClass {
         //Assert it is
         Assert.assertTrue(personalDetailsHeader, "Personal Details Header is not displayed.");
 
+        try {
+            boolean headerDisplayed = personalDetailsPage.personalDetailsHeader.isDisplayed();
+            if (headerDisplayed) {
+                String actualEmployeeId = personalDetailsPage.employeeID.getAttribute("value");
+                assertEquals(actualEmployeeId, expectedEmployeeId, "Employee ID does not match");
+                takeScreenshot(firstName + "_" + lastName);
+                System.out.println("The new employee is added successfully");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            // 1st way to fail your test
+//            System.out.println("Employee is not added. Username or ID already exits.");
+//            Assert.fail();
+            // 2nd way to fail my test
+            throw  new RuntimeException("Employee is not added. Username or ID already exits.");
+        }
+
     }
 
     @DataProvider(name = "addEmployeeTest")
     public Object[][] dataProviderMethod() {
         Object[][] data = {
-//                {"Jurgen", "Klopp", "Kloppy6","JurgenKlopp2021!"},
-//                {"Pep", "Guardiola", "Peppy6","PepGuardiola2022!"},
-//                {"Mikel", "Arteta", "Miko6","MikelArteta2023!"},
-//                {"Sir", "Fergie", "Referee6","SirFergie2013!"},
-               {"Bill", "Shankly", "Billosh6","BillShankly1973!"}
+//                {"Jurgen", "Klopp", "Kloppy8",randomStrongPassWord()},
+//                {"Pep", "Guardiola", "Peppy8",randomStrongPassWord()},
+//                {"Mikel", "Arteta", "Miko8",randomStrongPassWord()},
+//                {"Sir", "Fergie", "Referee8",randomStrongPassWord()},
+               {"Bill", "Shankly", "Billosh11",randomStrongPassWord()}
 
         };
         return data;}
