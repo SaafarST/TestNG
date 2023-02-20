@@ -59,11 +59,8 @@ public class _02_AddEmployeeFromExcel extends BaseClass {
             }
         } catch (Exception e) {
             e.printStackTrace();
-
-            // 2nd way to fail my test
             throw  new RuntimeException("Employee is not added. Username or ID already exits.");
         }
-
     }
 
     @DataProvider(name = "readFromExcel")
