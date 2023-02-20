@@ -25,7 +25,7 @@ public class _02_AddEmployeeFromExcel extends BaseClass {
                   BONUS: Specify a group name for this test case, and execute from the
                   XML file.
      */
-    @Test(dataProvider = "readFromExcel")
+    @Test(dataProvider = "readFromExcel", groups = {"smoke","regression", "excel"})
     public void loginTest(String firstName, String lastName, String username, String password) {
 
         //Login to website:
