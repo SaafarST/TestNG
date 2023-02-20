@@ -32,4 +32,9 @@ public class LoginPage extends BaseClass {
         sendText(password, ConfigsReader.getProperties(pswd));
         clickButWaitForClickability(loginBtn);
     }
+    public void loginToWebsite1(String user, String pswd){
+        sendText(username, user);
+        sendText(password, pswd);
+        clickButWaitForClickability(loginBtn);
+    }
 }

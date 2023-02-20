@@ -37,7 +37,14 @@ public class ExcelUtility {
        return sheet.getRow(0).getLastCellNum();
     }
     private static String getCell(int rowIndex, int columnIndex){
-        return sheet.getRow(rowIndex).getCell(columnIndex).toString();
+        Object obj;
+        Cell cell = sheet.getRow(rowIndex).getCell(columnIndex);
+        if (cell == null){
+            obj = "";
+        }else {
+            obj = cell.toString();
+        }
+        return obj.toString();
     }
     public static Object [][] readFromExcel(String filePath, String sheetName){
         getFilePath(filePath);

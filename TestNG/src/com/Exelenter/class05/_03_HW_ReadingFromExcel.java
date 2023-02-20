@@ -1,5 +1,7 @@
 package com.Exelenter.class05;
 
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utils.BaseClass;
@@ -9,49 +11,44 @@ import static org.testng.Assert.assertEquals;
 
 public class _03_HW_ReadingFromExcel extends BaseClass {
     /*
-      Task: HW: Add Employees using Data Provider Annotation
-             1.  Open the Chrome browser
-             2.  Go to https://exelentersdet.com/
-             3.  Login into the application
-             4.  Navigate to Add Employee Page
-             5.  Add 5 different Employees and create login credentials by providing:
-                     - First Name
-                     - Last Name
-                     - Username
-                     - Password
-             6.  Verify Employee has been added successfully and take screenshots (you
-                  must have 5 different screenshots)
-             7.  Close the browser
-                  BONUS: Specify a group name for this test case, and execute from the
-                  XML file.
+      HW: using TestNG DataProvider, write negative test cases for all the following scenarios:
+
+User Story: As an Invalid User, I should not be able to login using invalid login credentials, and if I try, I should see an error message.
+
+Acceptance Criteria:
+ 1. When a User enters a valid username and an invalid password
+    An 'Invalid credentials' error message is presented.
+ 2. When a User enters an invalid username and a valid password
+    An 'Invalid credentials' error message is presented.
+ 3. When a User enters an invalid username and invalid password
+    An 'Invalid credentials' error message is presented.
+ 4. When a User enters a valid username and an empty password
+    A 'Password cannot be empty' error message is displayed.
+ 5. When a User enters an invalid username and an empty password
+    A 'Password cannot be empty' error message is displayed.
+ 6. When a User enters an empty username and a valid password
+    A 'Username cannot be empty' error message is presented.
+ 7. When a User enters an empty username and an invalid password
+    A 'Username cannot be empty' error message is presented.
+ 8. When a User enters an empty username and an empty password
+    A 'Username cannot be empty' error message is presented.
+
      */
     @Test(dataProvider = "readFromExcel")
-    public void loginTest(String username, String password) {
+    public void loginTest(String username, String password, String expectedErrorMessage) {
 
         //Login to website:
-        loginPage.loginToWebsite(username,password);
-        //Navigate to Add Employee Page:
-
-        takeScreenshot1(username,password);
-//
-//        try {
-//            boolean headerDisplayed = personalDetailsPage.personalDetailsHeader.isDisplayed();
-//            if (headerDisplayed) {
-//                String actualEmployeeId = personalDetailsPage.employeeID.getAttribute("value");
-//                assertEquals(actualEmployeeId, expectedEmployeeId, "Employee ID does not match");
-//                takeScreenshot(firstName + "_" + lastName);
-//                System.out.println("The new employee is added successfully");
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            throw  new RuntimeException("Employee is not added. Username or ID already exits.");
-//        }
+        loginPage.loginToWebsite1(username,password);
+        String actualErrorMessage = loginPage.loginErrorMessage.getText();
+        System.out.println(actualErrorMessage);
+        boolean contains = actualErrorMessage.equals(expectedErrorMessage);
+        Assert.assertTrue(contains,"Error message does not match.");
     }
 
     @DataProvider(name = "readFromExcel")
     public Object[][] getDataFromExcel(){
-        String absolutePath = ExcelUtility.projectPath + "/testData/ExelenterEmployeesList.xlsx";  //Don't forget slash in front of testData
-        return ExcelUtility.readFromExcel(absolutePath, "Employee");
+        String absolutePath = ExcelUtility.projectPath + "/testData/LoginHWWithExcel1.xlsx";  //Don't forget slash in front of testData
+        return ExcelUtility.readFromExcel(absolutePath, "login&passwords");
     }
 
 }

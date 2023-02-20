@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Excel Test Suite">
-    <test name="Read From Excel Test">
-        <groups>
-            <run>
-                <include name="excel"/>
-            </run>
-        </groups>
+<suite name="LoginHWWithExcel Test Suite">
+    <test name="LoginHWWithExcel">
         <classes>
-            <class name="com.Exelenter.class05._02_AddEmployeeFromExcel">
+            <class name="com.Exelenter.class05._03_HW_ReadingFromExcel">
                 <methods>
                     <include name="loginTest"/>
                 </methods>
