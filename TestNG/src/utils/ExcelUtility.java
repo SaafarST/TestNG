@@ -54,9 +54,18 @@ public class ExcelUtility {
         Object[][] data = new Object[rows-1][columns];
         for (int i = 1; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                data[i-1][j] = getCell(i, j);
+                if (getCell(i, j) != null) {           // <== This is to be able to read form empty/blank cells, avoid NullPointerException.
+                    data[i - 1][j] = getCell(i, j);
+                }
             }
         }
+        try {
+            workbook.close();            // Closing part is optional, but highly recommended.
+            fileInputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         return data;
     }
 
